@@ -7,4 +7,31 @@ import { Component } from '@angular/core';
 })
 export class MultiColumnDropDownPageComponent {
 
+  dropDownColumnConfig: any[] = [
+    {
+      title: "Brand",
+      bindKey: "company",
+    },
+    {
+      title: "Model",
+      bindKey: "model",
+      displayItem: true,
+    }
+  ];
+
+  dropDownDataList : any [] = [
+    {
+      company: "Maruti",
+      model: "Alto",
+    },
+    {
+      company: "Tata",
+      model: "Nexon",
+    },
+    {
+      company: "Ford",
+      model: "Endeavour",
+    },
+  ]
+
 }

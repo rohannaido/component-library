@@ -1,1 +1,22 @@
-<p>multi-column-drop-down works!</p>
+<div>
+    <input class="inputField" (click)="handleInputClick()" [(ngModel)]="selectedItemDisplay" />
+    <div class="dataPanel" *ngIf="showDataPanel" >
+        <table class="dataPanelTable">
+            
+            <thead class="dataPanelHeaders">
+                <tr>
+                    <ng-container *ngFor="let columnConfigItem of columnConfig">
+                        <th>{{ columnConfigItem.title }}</th>
+                    </ng-container>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="dataRow" (click)="handleDataItemClick(dataItem)" *ngFor="let dataItem of dataList">
+                    <td *ngFor="let columnConfigItem of columnConfig">{{ dataItem[columnConfigItem.bindKey] }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
