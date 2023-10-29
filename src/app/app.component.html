@@ -10,10 +10,11 @@
   <mat-sidenav #sidenav [(opened)]="sideMenuOpened" mode="side" class="app-sidenav">
       <mat-nav-list>
           
-        <mat-list-item>
+        <mat-list-item routerLink="/multi-column-drop-down-page">
            <span>Multi column drop down</span>
         </mat-list-item>
-        <mat-list-item>
+
+        <mat-list-item routerLink="/data-table-page">
            <span>Data Table</span>
         </mat-list-item>
 
@@ -21,9 +22,6 @@
   </mat-sidenav>
   <mat-sidenav-content>
       <router-outlet>
-          <div class="app-sidenav-content">
-              Components open here
-          </div>
       </router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container> 
