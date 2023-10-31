@@ -5,11 +5,15 @@
     <multi-column-drop-down
         [columnConfig]="dropDownColumnConfig"
         [dataList]="dropDownDataList"
+        [(ngModel)]="doctor"
+        (valueChanged)="handleDropDownChange($event)"
     >
     </multi-column-drop-down>
 
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
+    <div>
+        Selected Value: {{ displayValue }}
+    </div>
+
+
+
 </section>

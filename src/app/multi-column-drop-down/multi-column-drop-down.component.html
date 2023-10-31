@@ -1,5 +1,5 @@
 <div>
-    <input class="inputField" (click)="handleInputClick()" [(ngModel)]="selectedItemDisplay" />
+    <input class="inputField" (click)="handleInputClick()" (input)="handleInputType()" [(ngModel)]="selectedItemDisplay" [disabled]="disabled" />
     <div class="dataPanel" *ngIf="showDataPanel" >
         <table class="dataPanelTable">
             
@@ -12,7 +12,7 @@
             </thead>
 
             <tbody>
-                <tr class="dataRow" (click)="handleDataItemClick(dataItem)" *ngFor="let dataItem of dataList">
+                <tr class="dataRow" (click)="handleDataItemClick(dataItem)" *ngFor="let dataItem of filteredDropDownList">
                     <td *ngFor="let columnConfigItem of columnConfig">{{ dataItem[columnConfigItem.bindKey] }}</td>
                 </tr>
             </tbody>
