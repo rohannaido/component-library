@@ -1,0 +1,31 @@
+.ddPanelContainer{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ddPanelHeading{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.ddPanelHeadingElement{
+    text-align: center;
+    font-weight: bolder;
+    width: 150px;
+}
+
+.ddPanelBodyContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.ddPanelBodyRowItem{
+    display: flex;
+    flex-direction: row;
+}
+
+.ddPanelBodyRowElement{
+    width: 150px;
+}

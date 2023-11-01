@@ -17,16 +17,18 @@
     <h1 class="page-heading">Multi Column Drop Down (material)</h1>
     <p>This is a drop down component with multiple columns for display. It is build to display more information in a structured manner for user to make a more informed selection.</p>
 
-    <multi-column-drop-down
+    <multi-column-drop-down-material
+        label="Doctor"
+        placeholder="Doctor Name"
         [columnConfig]="dropDownColumnConfig"
         [dataList]="dropDownDataList"
-        [(ngModel)]="doctor"
-        (valueChanged)="handleDropDownChange($event)"
+        [(ngModel)]="doctorMaterial"
+        (valueChanged)="handleDropDownMaterialChange($event)"
     >
-    </multi-column-drop-down>
+    </multi-column-drop-down-material>
 
     <div>
-        Selected Value: {{ displayValue }}
+        Selected Value: {{ displayMaterialValue }}
     </div>
 
 

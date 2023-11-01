@@ -1,11 +1,12 @@
 import { NgModule, } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { DataTableComponent } from './data-table/data-table.component';
 import { MultiColumnDropDownComponent } from './multi-column-drop-down/multi-column-drop-down.component';
 import { MultiColumnDropDownMaterialComponent } from './multi-column-drop-down-material/multi-column-drop-down-material.component';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -18,7 +19,9 @@ import { MultiColumnDropDownMaterialComponent } from './multi-column-drop-down-m
   imports: [
     CommonModule,
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports: [
     MultiColumnDropDownComponent,

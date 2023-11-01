@@ -9,6 +9,10 @@ export class MultiColumnDropDownPageComponent implements OnInit {
 
   dropDownColumnConfig: any[] = [
     {
+      title: "Id",
+      bindKey: "docId",
+    },
+    {
       title: "Doctor Name",
       bindKey: "doctorName",
       displayItem: true,
@@ -63,13 +67,20 @@ export class MultiColumnDropDownPageComponent implements OnInit {
   ]
 
   doctor: any | undefined;
+  doctorMaterial: any | undefined;
+
   displayValue: string = "";
+  displayMaterialValue: string = "";
 
   ngOnInit(): void {
   }
 
   handleDropDownChange(value: any){
     this.displayValue = JSON.stringify(value);
+  }
+
+  handleDropDownMaterialChange(value: any){
+    this.displayMaterialValue = JSON.stringify(value);
   }
 
 }

@@ -1,1 +1,37 @@
-<p>multi-column-drop-down-material works!</p>
+<form>
+
+    <mat-form-field>
+        <mat-label>{{ label }}</mat-label>
+    <input type="text"
+            [placeholder]="placeholder"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto">
+
+        <mat-autocomplete #auto="matAutocomplete" panelWidth="500px" [displayWith]="displayFn" (optionSelected)="handleOptionSelected($event)">
+            <div class="ddPanelContainer">
+
+                <div class="ddPanelHeading">
+                    <ng-container *ngFor="let columnConfigItem of columnConfig">
+                        <div class="ddPanelHeadingElement">
+                            {{ columnConfigItem.title }}
+                        </div>
+                    </ng-container>
+                </div>
+
+                <div class="ddPanelBodyContainer">
+                    <mat-option *ngFor="let dataItem of filteredDropDownList | async" [value]="dataItem" >
+                        <div class="ddPanelBodyRowItem">
+                            <div class="ddPanelBodyRowElement" *ngFor="let columnConfigItem of columnConfig">
+                                {{ dataItem[columnConfigItem.bindKey] }}
+                            </div>
+                        </div>
+                    </mat-option>
+                </div>
+
+            </div>
+
+        </mat-autocomplete>
+
+</mat-form-field>
+    </form>
