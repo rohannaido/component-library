@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MultiColumnDropDownComponent } from './multi-column-drop-down/multi-column-drop-down.component';
-import { MultiColumnDropDownPageComponent } from './multi-column-drop-down-page/multi-column-drop-down-page.component';
-import { DataTablePageComponent } from './data-table-page/data-table-page.component';
+import { MultiColumnDropDownPageComponent } from './pages/multi-column-drop-down-page/multi-column-drop-down-page.component';
+import { DataTablePageComponent } from './pages/data-table-page/data-table-page.component';
 
 const routes: Routes = [
   {

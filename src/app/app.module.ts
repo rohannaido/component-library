@@ -7,18 +7,12 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MultiColumnDropDownComponent } from './multi-column-drop-down/multi-column-drop-down.component';
-import { MultiColumnDropDownPageComponent } from './multi-column-drop-down-page/multi-column-drop-down-page.component';
-import { DataTablePageComponent } from './data-table-page/data-table-page.component';
-import { DataTableComponent } from './data-table/data-table.component';
+
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MultiColumnDropDownComponent,
-    MultiColumnDropDownPageComponent,
-    DataTablePageComponent,
-    DataTableComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +20,8 @@ import { DataTableComponent } from './data-table/data-table.component';
     NoopAnimationsModule,
     BrowserAnimationsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

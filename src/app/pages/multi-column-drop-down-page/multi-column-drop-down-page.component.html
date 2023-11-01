@@ -1,0 +1,34 @@
+<section>
+    <h1 class="page-heading">Multi Column Drop Down (basic)</h1>
+    <p>This is a drop down component with multiple columns for display. It is build to display more information in a structured manner for user to make a more informed selection.</p>
+
+    <multi-column-drop-down
+        [columnConfig]="dropDownColumnConfig"
+        [dataList]="dropDownDataList"
+        [(ngModel)]="doctor"
+        (valueChanged)="handleDropDownChange($event)"
+    >
+    </multi-column-drop-down>
+
+    <div>
+        Selected Value: {{ displayValue }}
+    </div>
+
+    <h1 class="page-heading">Multi Column Drop Down (material)</h1>
+    <p>This is a drop down component with multiple columns for display. It is build to display more information in a structured manner for user to make a more informed selection.</p>
+
+    <multi-column-drop-down
+        [columnConfig]="dropDownColumnConfig"
+        [dataList]="dropDownDataList"
+        [(ngModel)]="doctor"
+        (valueChanged)="handleDropDownChange($event)"
+    >
+    </multi-column-drop-down>
+
+    <div>
+        Selected Value: {{ displayValue }}
+    </div>
+
+
+
+</section>
