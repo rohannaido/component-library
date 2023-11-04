@@ -7,6 +7,7 @@ import { UiComponentsModule } from '../ui-components/ui-components.module';
 
 import { MultiColumnDropDownPageComponent } from './multi-column-drop-down-page/multi-column-drop-down-page.component';
 import { DataTablePageComponent } from './data-table-page/data-table-page.component';
+import { MultiColumnMultiSelectPageComponent } from './multi-column-multi-select-page/multi-column-multi-select-page.component';
 
 
 
@@ -14,6 +15,7 @@ import { DataTablePageComponent } from './data-table-page/data-table-page.compon
   declarations: [
     MultiColumnDropDownPageComponent,
     DataTablePageComponent,
+    MultiColumnMultiSelectPageComponent,
   ],
   imports: [
     CommonModule,

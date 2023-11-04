@@ -1,0 +1,18 @@
+<section>
+    <h1 class="page-heading">Multi Column Multi Select Drop Down (Material)</h1>
+    <p>This is a drop down component with multiple columns for display and select mutiple options. It is build to display more information in a structured manner for user to make a more informed selection.</p>
+
+    <multi-column-multi-select
+        label="Doctor"
+        placeholder="Doctor Name"
+        [columnConfig]="dropDownColumnConfig"
+        [dataList]="dropDownDataList"
+        [(ngModel)]="doctorList"
+        >
+        
+    </multi-column-multi-select>
+
+    <div>
+        <!-- Selected Value: {{ displayValue }} -->
+    </div>
+</section>

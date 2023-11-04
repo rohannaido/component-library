@@ -1,0 +1,27 @@
+<mat-form-field>
+    <mat-label>{{ label }}</mat-label>
+
+    <mat-select [formControl]="myControl" panelWidth="500px" (selectionChange)="handleOptionSelected($event)" multiple>
+        <div class="ddPanelContainer">
+            <div class="ddPanelBodyContainer">
+                
+                <div class="ddPanelHeading">
+                    <ng-container *ngFor="let columnConfigItem of columnConfig">
+                        <div class="ddPanelHeadingElement">
+                            {{ columnConfigItem.title }}
+                        </div>
+                    </ng-container>
+                </div>
+
+                <mat-option *ngFor="let dataItem of dataList" [value]="dataItem">
+                    <div class="ddPanelBodyRowItem">
+                        <div class="ddPanelBodyRowElement" *ngFor="let columnConfigItem of columnConfig">
+                            {{ dataItem[columnConfigItem.bindKey] }}
+                        </div>
+                    </div>
+                </mat-option>
+            </div>
+        </div>
+    </mat-select>
+
+</mat-form-field>
