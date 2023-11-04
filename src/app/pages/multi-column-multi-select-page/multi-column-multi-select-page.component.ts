@@ -70,9 +70,6 @@ export class MultiColumnMultiSelectPageComponent implements OnInit {
   doctorList: any[] = [];
 
   ngOnInit(): void {
-      setInterval(() => {
-        console.log(this.doctorList);
-      }, 1000)
   }
 
 }

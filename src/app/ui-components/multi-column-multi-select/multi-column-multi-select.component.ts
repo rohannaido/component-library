@@ -22,9 +22,16 @@ export class MultiColumnMultiSelectComponent implements OnInit {
 
   @Output() valueChanged: EventEmitter<any> = new EventEmitter<any>();
 
-  myControl = new FormControl('');
+  myControl = new FormControl<any[]>([]);
+
+  displayKey: string = '';
 
   ngOnInit(): void {
+    this.displayKey = this.columnConfig.find((columnItem: any) => (columnItem.displayItem === true) )?.bindKey;
+    if(!this.displayKey){
+      this.displayKey = this.columnConfig[0].bindKey;
+    }
+
   }
 
   handleOptionSelected(event: any){
@@ -47,8 +54,8 @@ export class MultiColumnMultiSelectComponent implements OnInit {
     // this.disabled = isDisabled;
   }
 
-  writeValue(value: string): void {
-    // this.selectedItem = value;
+  writeValue(value: any[]): void {
+    this.myControl.patchValue(value);
   }
 
 }

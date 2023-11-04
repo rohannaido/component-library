@@ -1,7 +1,18 @@
 <mat-form-field>
     <mat-label>{{ label }}</mat-label>
 
-    <mat-select [formControl]="myControl" panelWidth="500px" (selectionChange)="handleOptionSelected($event)" multiple>
+    <mat-select [formControl]="myControl" panelWidth="500px" (selectionChange)="handleOptionSelected($event)" [value]="value" multiple>
+        
+        <mat-select-trigger>
+            <ng-container *ngIf="myControl.value?.length">
+                <span *ngFor="let selectedItem of myControl.value">
+                    <span>
+                        {{ selectedItem[displayKey] }}
+                    </span>
+                </span>
+            </ng-container>
+          </mat-select-trigger>
+
         <div class="ddPanelContainer">
             <div class="ddPanelBodyContainer">
                 
