@@ -1,4 +1,5 @@
-import { Component, Input, Output, OnInit, forwardRef, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, forwardRef, 
+  EventEmitter, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -14,7 +15,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
  ]
 })
 export class MultiColumnDropDownComponent implements OnInit, ControlValueAccessor {
-  
+  @ViewChild('dropDown') dropDown: ElementRef | undefined;
+
   @Input() columnConfig: any[] = [];
   @Input() dataList: any[] = [];
 
@@ -71,6 +73,13 @@ export class MultiColumnDropDownComponent implements OnInit, ControlValueAccesso
 
     if(this.displayKey){
       this.selectedItemDisplay = dataItem[this.displayKey];
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: Event): void {
+    if (!this.dropDown?.nativeElement.contains(event.target)) {
+      this.showDataPanel = false;
     }
   }
 

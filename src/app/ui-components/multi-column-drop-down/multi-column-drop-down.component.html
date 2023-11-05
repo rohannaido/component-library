@@ -1,4 +1,4 @@
-<div>
+<div #dropDown>
     <input class="inputField" (click)="handleInputClick()" (input)="handleInputType()" [(ngModel)]="selectedItemDisplay" [disabled]="disabled" />
     <div class="dataPanel" *ngIf="showDataPanel" >
         <table class="dataPanelTable">
