@@ -1,5 +1,5 @@
-import { Component, Input, Output, OnInit, EventEmitter, OnChanges, forwardRef } from '@angular/core';
-
+import { Component, Input, Output, OnInit, EventEmitter, OnChanges, forwardRef, ViewChild } from '@angular/core';
+import { MatAutocomplete } from "@angular/material/autocomplete";
 import {FormControl, NG_VALUE_ACCESSOR, } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
@@ -18,6 +18,7 @@ import {startWith, map} from 'rxjs/operators';
  ]
 })
 export class MultiColumnDropDownMaterialComponent implements OnInit, OnChanges {
+  @ViewChild("auto", { static: true }) autoComplete: MatAutocomplete | undefined;
 
   @Input() label: string = "";
   @Input() placeholder: string = "";
@@ -25,6 +26,8 @@ export class MultiColumnDropDownMaterialComponent implements OnInit, OnChanges {
   @Input() dataList: any[] = [];
 
   @Output() valueChanged: EventEmitter<any> = new EventEmitter<any>();
+
+  height: string = "";
 
   disabled: boolean = false;
   
@@ -35,9 +38,13 @@ export class MultiColumnDropDownMaterialComponent implements OnInit, OnChanges {
 
   displayKey: string = "";
 
-  // filteredDropDownList: any[] = [];
-  filteredDropDownList: Observable<any[]> | undefined;
+  filteredDropDownList: any[] = [];
 
+  scrollToSelectedItem(ev: KeyboardEvent) {
+    if (ev.key === "ArrowDown") {
+      this.autoComplete?._keyManager?.activeItem?._getHostElement().scrollIntoView();
+    }
+  }
 
   ngOnInit(){
     
@@ -51,13 +58,28 @@ export class MultiColumnDropDownMaterialComponent implements OnInit, OnChanges {
     
     // this.filteredDropDownList = this.dataList;
 
-    this.filteredDropDownList = this.myControl.valueChanges.pipe(
-      startWith(''),
+    this.myControl.valueChanges
+    .pipe(
+      startWith(""),
       map(value => {
-        const name = typeof value === 'string' ? value : value?.name;
-        return name ? this._filter(name as string) : this.dataList.slice();
-      }),
-    );
+        const name = typeof value === 'string' ? value : '';
+        this.filteredDropDownList = this._filter(name)
+        if (this.filteredDropDownList.length < 4) {
+          this.height = this.filteredDropDownList.length * 50 + "px";
+        } else {
+          this.height = "200px";
+        }
+      })
+    )
+    .subscribe();
+
+    // this.filteredDropDownList = this.myControl.valueChanges.pipe(
+    //   startWith(''),
+    //   map(value => {
+    //     const name = typeof value === 'string' ? value : value?.name;
+    //     return name ? this._filter(name as string) : this.dataList.slice();
+    //   }),
+    // );
   }
 
   ngOnChanges(){

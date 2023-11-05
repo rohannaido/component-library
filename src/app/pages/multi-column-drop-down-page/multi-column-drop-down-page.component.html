@@ -16,12 +16,13 @@
 
     <h1 class="page-heading">Multi Column Drop Down (material)</h1>
     <p>This is a drop down component with multiple columns for display. It is build to display more information in a structured manner for user to make a more informed selection.</p>
+    <p>It has virtual scrolling to load large lists and not load the DOM.</p>
 
     <multi-column-drop-down-material
         label="Doctor"
         placeholder="Doctor Name"
         [columnConfig]="dropDownColumnConfig"
-        [dataList]="dropDownDataList"
+        [dataList]="dropDownDataListMaterial"
         [(ngModel)]="doctorMaterial"
         (valueChanged)="handleDropDownMaterialChange($event)"
     >

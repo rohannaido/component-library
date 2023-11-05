@@ -2,14 +2,17 @@
 
     <mat-form-field>
         <mat-label>{{ label }}</mat-label>
-    <input type="text"
-            [placeholder]="placeholder"
-            matInput
-            [formControl]="myControl"
-            [matAutocomplete]="auto">
+        <input type="text"
+                [placeholder]="placeholder"
+                matInput
+                [formControl]="myControl"
+                [matAutocomplete]="auto"
+                >
+                <!-- (keyup)="scrollToSelectedItem($event)" -->
 
-        <mat-autocomplete #auto="matAutocomplete" panelWidth="500px" [displayWith]="displayFn" (optionSelected)="handleOptionSelected($event)">
-            <div class="ddPanelContainer">
+            <mat-autocomplete #auto="matAutocomplete" panelWidth="600px" [displayWith]="displayFn" (optionSelected)="handleOptionSelected($event)">
+                <div class="ddPanelContainer">
+                
 
                 <div class="ddPanelHeading">
                     <ng-container *ngFor="let columnConfigItem of columnConfig">
@@ -20,18 +23,22 @@
                 </div>
 
                 <div class="ddPanelBodyContainer">
-                    <mat-option *ngFor="let dataItem of filteredDropDownList | async" [value]="dataItem" >
-                        <div class="ddPanelBodyRowItem">
-                            <div class="ddPanelBodyRowElement" *ngFor="let columnConfigItem of columnConfig">
-                                {{ dataItem[columnConfigItem.bindKey] }}
-                            </div>
-                        </div>
-                    </mat-option>
-                </div>
+                    <cdk-virtual-scroll-viewport itemSize="25" [ngStyle]="{'height': height}">
 
+                        <mat-option *cdkVirtualFor="let dataItem of filteredDropDownList" [value]="dataItem" >
+                            <div class="ddPanelBodyRowItem">
+                                <div class="ddPanelBodyRowElement" *ngFor="let columnConfigItem of columnConfig">
+                                    {{ dataItem[columnConfigItem.bindKey] }}
+                                </div>
+                            </div>
+                        </mat-option>
+
+                    </cdk-virtual-scroll-viewport>
+                </div>
+                        
             </div>
 
         </mat-autocomplete>
 
-</mat-form-field>
-    </form>
+    </mat-form-field>
+</form>

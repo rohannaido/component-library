@@ -65,6 +65,7 @@ export class MultiColumnDropDownPageComponent implements OnInit {
       experience: "19",
     },
   ]
+  dropDownDataListMaterial: any[] = [];
 
   doctor: any | undefined;
   doctorMaterial: any | undefined;
@@ -73,6 +74,23 @@ export class MultiColumnDropDownPageComponent implements OnInit {
   displayMaterialValue: string = "";
 
   ngOnInit(): void {
+
+    this.dropDownDataListMaterial = JSON.parse(JSON.stringify(this.dropDownDataList));
+
+    let array: any[] = [];
+    let temp: any[] = [];
+    let number = 1;
+    for(let i = 0; i < 100; i++){
+      temp = this.dropDownDataListMaterial.map((item) => {
+        item.docId = number;
+        number++;
+        item = JSON.parse(JSON.stringify(item));
+        return item;
+      })
+      array = array.concat(temp)
+    }
+
+    this.dropDownDataListMaterial = array;
   }
 
   handleDropDownChange(value: any){

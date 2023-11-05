@@ -42,6 +42,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
+// Scrolling 
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -80,7 +83,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    ScrollingModule,
   ],
   exports: [
     MatAutocompleteModule,
@@ -117,7 +121,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    ScrollingModule,
   ]
 })
 export class MaterialModule { }
