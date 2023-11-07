@@ -81,6 +81,7 @@ export class MultiColumnDropDownPageComponent implements OnInit {
     let temp: any[] = [];
     let number = 1;
     for(let i = 0; i < 100; i++){
+      
       temp = this.dropDownDataListMaterial.map((item) => {
         item.docId = number;
         number++;
